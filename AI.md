@@ -75,7 +75,7 @@ STREAMHUNDRED/
 │       └── star-sticker.svg      # Die-cut star sticker
 ├── scripts/
 │   └── update-data.mjs           # Standalone CLI scraper and iTunes enrichment script
-├── 1.md                          # Master AI context and architecture reference
+├── AI.md                         # Master AI context and architecture reference
 ├── package.json                  # Next.js 16, React 19, Motion, @number-flow/react
 └── tsconfig.json                 # Strict TypeScript configuration
 ```

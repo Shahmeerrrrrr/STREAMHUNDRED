@@ -2,6 +2,8 @@
 
 > Real-time, editorial tracking for the **Top 100 Most Streamed Songs of All Time on Spotify**.
 
+🌐 **Live Website**: [https://streamhundred.vercel.app](https://streamhundred.vercel.app)
+
 ![Next.js 16](https://img.shields.io/badge/Next.js-16.3-black?style=flat&logo=next.js)
 ![React 19](https://img.shields.io/badge/React-19-blue?style=flat&logo=react)
 ![TailwindCSS 4](https://img.shields.io/badge/TailwindCSS-4-06B6D4?style=flat&logo=tailwindcss)
@@ -23,7 +25,7 @@
 ## Master Architecture Guide
 
 For an in-depth breakdown of the system architecture, component tree, scraper pipeline, and gotchas, see:
-📖 **[1.md — System Architecture & AI Context Guide](./1.md)**
+📖 **[AI.md — System Architecture & AI Context Guide](./AI.md)**
 
 ---
 
