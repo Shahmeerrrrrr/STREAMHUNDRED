@@ -1,0 +1,196 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: var(--font-serif), "Instrument Serif", Georgia, serif;
+  --font-sans: var(--font-inter), "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+@layer base {
+  html {
+    font-size: 15px;
+    background-color: #f8fafc;
+  }
+
+  body {
+    overflow-y: scroll;
+    font-family: var(--font-inter), "Inter", sans-serif;
+    color: #1e293b;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  *::selection {
+    background-color: #99f6e4;
+  }
+}
+
+.font-serif {
+  font-family: var(--font-serif), "Instrument Serif", Georgia, serif !important;
+}
+
+.font-sans {
+  font-family: var(--font-inter), "Inter", sans-serif !important;
+}
+
+/* Tileset grid background matching GitHundred */
+.tileset {
+  --bg: #f8fafc;
+  --color: #e2e8f0;
+  --space: 0.25rem;
+  background:
+    repeating-linear-gradient(
+      transparent,
+      transparent var(--space),
+      var(--bg) var(--space),
+      var(--bg) calc(var(--space) * 2)
+    ),
+    repeating-linear-gradient(
+      90deg,
+      var(--color),
+      var(--color) var(--space),
+      var(--bg) var(--space),
+      var(--bg) calc(var(--space) * 2)
+    );
+}
+
+/* GitHundred's .box utility for form controls */
+.box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #cbd5e1;
+  background-color: #f8fafc;
+  padding: 0.5rem 0.75rem;
+  white-space: nowrap;
+  outline: 0;
+  transition: all 150ms ease;
+}
+
+.box:hover {
+  background-color: #ffffff;
+  border-color: #94a3b8;
+}
+
+.box:focus,
+.box:focus-within {
+  border-color: #2dd4bf !important;
+  outline: 4px solid #ccfbf1 !important;
+}
+
+/* Sticker styles matching GitHundred Sticker.vue */
+.sticker {
+  transform: perspective(300px) rotateX(calc(var(--x) * 1deg)) rotateY(calc(var(--y) * 1deg));
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.shine {
+  mask-image: var(--mask-url);
+  mask-size: calc(100% - 2px);
+  mask-position: 1px;
+  mask-repeat: no-repeat;
+  -webkit-mask-image: var(--mask-url);
+  -webkit-mask-size: calc(100% - 2px);
+  -webkit-mask-position: 1px;
+  -webkit-mask-repeat: no-repeat;
+
+  background-image:
+    url(/images/noise.png),
+    repeating-linear-gradient(-45deg, black, white 5%, black 10%),
+    repeating-linear-gradient(purple, red, yellow, green, cyan, purple);
+  background-size:
+    50% 50%,
+    400% 400%,
+    400% 400%;
+  background-position:
+    center center,
+    calc(var(--y) * 1% - 100%) calc(var(--x) * 1% - 100%),
+    calc(var(--x) * 5%) calc(var(--y) * 5%);
+
+  background-blend-mode: overlay, color-burn;
+  mix-blend-mode: plus-lighter;
+  filter: brightness(var(--from-center)) contrast(3);
+  pointer-events: none;
+}
+
+/* Staggered idle float keyframes */
+@keyframes float-a {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes float-b {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(6px); }
+}
+
+@keyframes float-c {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.animate-float-a {
+  animation: float-a 4.8s ease-in-out infinite;
+}
+
+.animate-float-b {
+  animation: float-b 5.6s ease-in-out infinite;
+}
+
+.animate-float-c {
+  animation: float-c 6.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-a,
+  .animate-float-b,
+  .animate-float-c {
+    animation: none !important;
+  }
+  .sticker {
+    transform: none !important;
+  }
+  .shine {
+    display: none !important;
+  }
+}
+
+/* Custom Blue Arrow Cursor Site-wide (entire website) */
+html,
+body,
+body * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28' fill='none'%3E%3Cpath d='M5 3L13.5 24L17 15.5L25.5 12L5 3Z' fill='%232563EB' stroke='%23FFFFFF' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E") 5 3, auto !important;
+}
+
+a,
+a *,
+button,
+button *,
+[role="button"],
+[role="button"] *,
+.cursor-pointer,
+.cursor-pointer * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28' fill='none'%3E%3Cpath d='M5 3L13.5 24L17 15.5L25.5 12L5 3Z' fill='%232563EB' stroke='%23FFFFFF' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E") 5 3, pointer !important;
+}
+
+input[type="text"],
+input[type="search"],
+textarea {
+  cursor: text !important;
+}
+
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
